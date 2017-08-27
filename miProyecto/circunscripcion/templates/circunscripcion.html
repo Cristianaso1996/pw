@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Circunscripciones</title>
+	</head>
+	<body>
+		{% if user.is_authenticated %}
+			{% if not user.is_staff %}
+				<ul>
+				{% for i in listaCircunscripciones %}
+					<li><strong> Circunscripcion: </strong> {{ i.nombreCircunscripcion }} </li>
+					<li><strong> Escaños: </strong> {{ i.numeroEscanhos }} </li>
+					<p>----------------------------------------------------------------</p>	
+				{% endfor %}
+				</ul>
+			{% else %}
+				<a href="addCircunscripcion/"> Añadir Circunscripción</a>
+					<ul>
+					{% for i in listaCircunscripciones %}
+						<li><strong> Circunscripcion: </strong> {{ i.nombreCircunscripcion }} </li>
+						<li><strong> Escaños: </strong> {{ i.numeroEscanhos }} </li>
+						<li><a href="{{ i.id }}/changeCircunscripcion"> Editar esta circunscripción</a></li>
+						<li><a href="{{ i.id }}/deleteCircunscripcion"> Borrar esta circunscripción</a></li>
+						<p>----------------------------------------------------------------</p>	
+					{% endfor %}
+					</ul>
+			{% endif %}
+		{% else %}
+			<ul>
+			{% for i in listaCircunscripciones %}
+				<li><strong> Circunscripcion: </strong> {{ i.nombreCircunscripcion }} </li>
+				<li><strong> Escaños: </strong> {{ i.numeroEscanhos }} </li>
+				<p>----------------------------------------------------------------</p>	
+			{% endfor %}
+			</ul>
+		{% endif %}
+	</body>
+</html>

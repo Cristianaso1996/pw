@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Borrar mesa</title>
+	</head>
+	<body>
+		<center>
+			<p>Pulse en el siguiente botón para eliminar la mesa definitivamente</p>
+			<form method='post' class="mesa-form">
+				{% csrf_token %}
+      <input type="submit" value="Eliminar"/>
+		</center>
+	</body>
+</html>

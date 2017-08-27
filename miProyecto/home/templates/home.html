@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Página Principal</title>
+	</head>
+	<body>
+		<center><h3>Elecciones</h3></center>
+		<div>
+			<center><a href="home/circunscripciones/">Circunscripciones</a></center>
+			<center><a href="home/mesas/">Mesas</a></center>
+			{% if not user.is_authenticated %}
+				<center><a href="home/registro/">Registro</a></center>
+				<center><a href="home/login/">Iniciar Sesión</a></center>
+			{% else %}
+				<center><p>Usted ha iniciado sesión como {{ user.username }}</p></center>
+				<center><a href="home/logout/">Cerrar Sesión</a></center>
+			{% endif %}
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Mesas</title>
+	</head>
+	<body>
+		{% if user.is_authenticated %}
+			{% if user.is_staff %}
+				<ul>
+				{% for i in listaMesas %}
+					<li><strong> Mesa: </strong> {{ i.nombreMesa }} </li>
+					<li><strong> Circunscripcion a la que pertenece: </strong> {{ i.id_nombreCircunscripcion }} </li>
+					<p>----------------------------------------------------------------</p>	
+				{% endfor %}
+				</ul>
+			{% else %}
+				<a href="addMesa/"> Añadir Mesa</a>
+					<ul>
+					{% for i in listaMesas %}
+						<li><strong> Mesa: </strong> {{ i.nombreMesa }} </li>
+						<li><strong> Circunscripcion a la que pertenece: </strong> {{ i.id_nombreCircunscripcion }} </li>
+						<li><a href="{{ i.id }}/changeMesa"> Editar esta mesa </a></li>
+						<p>----------------------------------------------------------------</p>	
+					{% endfor %}
+					</ul>
+			{% endif %}
+		{% else %}
+			<ul>
+			{% for i in listaMesas %}
+				<li><strong> Mesa: </strong> {{ i.nombreMesa }} </li>
+				<li><strong> Circunscripcion a la que pertenece: </strong> {{ i.id_nombreCircunscripcion }} </li>
+				<p>----------------------------------------------------------------</p>	
+			{% endfor %}
+			</ul>
+		{% endif %}
+	</body>
+</html>
